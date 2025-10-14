@@ -1,0 +1,80 @@
+# Get editor completions based on the config schema. https://starship.rs/config/
+"$schema" = 'https://starship.rs/config-schema.json'
+
+
+########### Prompt ##########
+right_format = """$all$env_var"""
+format = """$directory$character"""
+command_timeout = 1000
+add_newline = false
+
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+[directory.substitutions]
+# '~' = '🏠'
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = 'underline cyan'
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+
+[git_status]
+style = 'dimmed green'
+conflicted = '🏳'
+ahead = '🏎💨'
+behind = '😰'
+diverged = '😵'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+renamed = '👅'
+deleted = '🗑'
+
+
+[env_var.all_proxy]
+variable = 'all_proxy'
+format = "[$env_value]($style) "
+default = ''
+style = 'white dimmed'
+
+
+[cmd_duration]
+format = '[$duration]($style) '
+min_time = 250
+
+
+[java]
+format = '[${symbol}(${version} )]($style)'
+
+[rust]
+format = '[$symbol($version )]($style)'
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[nodejs]
+format = '[$symbol($version )]($style)'
+
+[lua]
+format = '[$symbol($version )]($style)'
+
+[golang]
+format = '[$symbol($version )]($style)'
+
+[c]
+format = '[$symbol($version(-$name) )]($style)'
+
+[ruby]
+format = '[$symbol($version )]($style)'
