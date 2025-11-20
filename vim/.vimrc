@@ -4,6 +4,9 @@ set relativenumber
 set ruler
 set cursorline
 
+highlight CursorLine cterm=NONE ctermbg=236 guibg=#444444
+highlight CursorLineNr cterm=NONE ctermfg=11 guibg=#3b3b3b gui=bold guifg=Yellow
+
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -25,7 +28,6 @@ syntax on
 
 
 let mapleader = " "
-inoremap jk <Esc>
 nnoremap <leader>w :w<CR>
 
 " ========== Drew Neil's Practical VIM ==========
@@ -42,3 +44,5 @@ nnoremap ss :noh<CR>
 " ===============================================
 
 com! FormatJSON %!python3 -m json.tool
+
+
